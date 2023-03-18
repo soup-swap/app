@@ -2,7 +2,7 @@
 
 body {
   margin: 0;
-  background-color: $offwhite;
+  background-color: $curry;
   color: $brown;
   font-family: "Nunito", sans-serif;
   h1 {
@@ -12,13 +12,15 @@ body {
   font-size: 16px;
 }
 
-footer {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  background-color: $curry;
-  min-height: 50px;
-  padding: 20px;
-  color: $offwhite;
+button {
+  font-family: "Nunito", sans-serif;
+  background-color: $lavender;
+  color: $rust;
+  border: none;
+  padding: 6px;
+  border-radius: 2px;
+  cursor: pointer;
+  &:hover {
+    background-color: $pink;
+  }
 }
