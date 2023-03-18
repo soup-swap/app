@@ -1,12 +1,12 @@
 import styles from "./home.module.css";
 import Head from "next/head";
 
-const { data, error } = await supabase.auth.signInWithOtp({
-	email: 'example@email.com',
-	options: {
-	  emailRedirectTo: 'https://example.com/welcome'
-	}
-  })
+// const { data, error } = await supabase.auth.signInWithOtp({
+// 	email: 'example@email.com',
+// 	options: {
+// 	  emailRedirectTo: 'https://example.com/welcome'
+// 	}
+//   })
 
 export default function HomePage() {
   return (
@@ -33,5 +33,5 @@ export default function HomePage() {
         <h1 style={{ fontWeight: 200, color: "#2F4858" }}>Swapping Soon...</h1>
       </main>
     </>
-  );;
+  );
 }
