@@ -1,11 +1,13 @@
+import { supabase } from "@/lib/supabaseClient";
 import { Group } from "@/lib/types";
 import Link from "next/link";
 import { FC } from "react";
 
 export async function getServerSideProps() {
+  const result = await supabase.from("groups").select();
   return {
     props: {
-      groups: [{ id: 1, name: "Souperheroes" }],
+      groups: result.data,
     },
   };
 }
@@ -22,8 +24,8 @@ const GroupsList: FC<GroupPageProps> = ({ groups }) => {
   return (
     <ul>
       {groups.map((group) => (
-        <Link key={group.id} href={`/groups/${group.id}`}>
-          <li>{group.name}</li>
+        <Link key={group.group_id} href={`/groups/${group.group_id}`}>
+          <li>{group.group_name}</li>
         </Link>
       ))}
     </ul>

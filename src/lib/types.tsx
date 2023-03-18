@@ -1,7 +1,7 @@
 export interface Group {
-  id: number;
-  name: string;
-  description: string;
+  group_id: number;
+  group_name: string;
+  group_description: string;
 }
 
 export interface Recipe {
