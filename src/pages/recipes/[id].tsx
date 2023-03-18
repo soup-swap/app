@@ -8,19 +8,24 @@ interface RecipeDetailsPageProps {
 export const getServerSideProps = () => {
   return {
     props: {
-      recipe: [
-        {
-          id: 2,
-          name: "Clamato Chowder",
-          ingredients: [
-            {
-              name: "Tomato Juice",
-              quantity: 2,
-              unit: "Cups",
-            },
-          ],
-        },
-      ],
+      recipe: {
+        id: 2,
+        name: "Clamato Chowder",
+        ingredients: [
+          {
+            name: "Tomato Juice",
+            quantity: 2,
+            unit: "Cups",
+          },
+          {
+            name: "Fresh Clams",
+            quantity: 1,
+            unit: "Bucket",
+          },
+        ],
+        instructions:
+          "Mix tomato juice and clams in a blender. Pour over ice. Garnish with a habanero-stuffed olive, skewered by a tiny plastic sword.",
+      },
     },
   };
 };
