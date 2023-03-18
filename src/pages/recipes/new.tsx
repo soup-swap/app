@@ -1,32 +1,5 @@
+import { Ingredient, UNIT_TEASPOON } from "@/lib/types";
 import { useForm, useFieldArray } from "react-hook-form";
-
-const UNIT_TEASPOON = "tsp";
-const UNIT_TABLESPOON = "tbsp";
-const UNIT_CUP = "cup";
-const UNIT_OUNCE = "oz";
-const UNIT_GRAM = "g";
-const UNIT_PACKAGE = "package";
-const UNIT_BOX = "box";
-const UNIT_CONTAINER = "container";
-const UNIT_BAG = "bag";
-
-type UnitOption =
-  | typeof UNIT_TEASPOON
-  | typeof UNIT_TABLESPOON
-  | typeof UNIT_CUP
-  | typeof UNIT_OUNCE
-  | typeof UNIT_GRAM
-  | typeof UNIT_PACKAGE
-  | typeof UNIT_BOX
-  | typeof UNIT_CONTAINER
-  | typeof UNIT_BAG
-  | string;
-
-interface Ingredient {
-  name: string;
-  quantity: number;
-  unit: UnitOption;
-}
 
 interface RecipeFormData {
   recipeName: string;
