@@ -1,0 +1,70 @@
+@import "../../styles/variables.scss";
+
+.recipeMain {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    min-height: 75vh;
+    background-color: $offwhite;
+    form {
+        width: 600px;
+    }
+    input,
+    textarea {
+        padding: 10px;
+        margin-left: 10px;
+        margin-right: 5px;
+        background-color: $lighteroffwhite;
+        border: 1px solid $curry;
+        margin-bottom: 20px;
+    }
+    label {
+        margin-right: 10px;
+    }
+
+    ul {
+        list-style: none;
+        li {
+            display: flex;
+            flex-flow: row nowrap;
+        }
+    }
+    .recipeName {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        input {
+            width: 100%;
+        }
+    }
+    .ingredientsList {
+        display: flex;
+        margin-bottom: 20px;
+        flex-flow: column nowrap;
+        button {
+            justify-self: left;
+        }
+    }
+    .addIngredient {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .removeIngredient {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        .xIcon {
+            width: 20px;
+            height: auto;
+        }
+    }
+
+    .instructions {
+        margin-top: 20px;
+    }
+}
