@@ -1,5 +1,6 @@
 import { supabase } from "./../lib/supabaseClient";
 import Header from '../components/layout/Header'
+import Footer from '../components/layout/Footer'
 
 interface Country {
   id: string;
@@ -19,6 +20,7 @@ function Page({ countries }: ExamplePage) {
         <li key={country.id}>{country.name}</li>
       ))}
     </ul>
+    <Footer/>
     </>
   );
 }
