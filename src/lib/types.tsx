@@ -5,8 +5,8 @@ export interface Group {
 }
 
 export interface Recipe {
-  id: number;
-  name: string;
+  recipe_id: number;
+  recipe_name: string;
   ingredients: Ingredient[];
   instructions: string;
 }

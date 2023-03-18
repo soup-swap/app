@@ -1,26 +1,26 @@
+import { supabase } from "@/lib/supabaseClient";
 import { Group, Recipe } from "@/lib/types";
-import { group } from "console";
 import Link from "next/link";
 import { FC } from "react";
 
-export const getServerSideProps = () => {
+export const getServerSideProps = async ({ params }) => {
+  const groupFetch = supabase
+    .from("groups")
+    .select()
+    .eq("group_id", params.id)
+    .single();
+
+  const recipesFetch = supabase.from("recipes").select();
+
+  const [groupResult, recipesResult] = await Promise.all([
+    groupFetch,
+    recipesFetch,
+  ]);
+
   return {
     props: {
-      groupInfo: {
-        id: 1,
-        name: "Souperheroes",
-        description: "🍜 Broths Over Brawn 💪",
-      },
-      groupRecipes: [
-        {
-          id: 1,
-          name: "Mom's Classic Vape Juice Boullion",
-        },
-        {
-          id: 2,
-          name: "Clamato Chowder",
-        },
-      ],
+      groupInfo: groupResult.data,
+      groupRecipes: recipesResult.data,
     },
   };
 };
@@ -29,8 +29,8 @@ export const RecipesList: FC<{ recipes: Recipe[] }> = ({ recipes }) => {
   return (
     <ul>
       {recipes.map((recipe) => (
-        <Link key={recipe.name} href={`recipes/${recipe.id}`}>
-          <li>{recipe.name}</li>
+        <Link key={recipe.recipe_id} href={`recipes/${recipe.recipe_id}`}>
+          <li>{recipe.recipe_name}</li>
         </Link>
       ))}
     </ul>
@@ -49,8 +49,8 @@ const GroupDetailsPage: FC<GroupDetailsPageProps> = ({
   return (
     <div>
       <div className="group-summary">
-        <h1>{groupInfo.name}</h1>
-        <p>{groupInfo.description}</p>
+        <h1>{groupInfo.group_name}</h1>
+        <p>{groupInfo.group_description}</p>
       </div>
       <div className="group-recipes">
         <h2>Recipes</h2>
