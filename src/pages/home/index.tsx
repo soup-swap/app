@@ -1,4 +1,4 @@
-import styles from "./home.module.css";
+import styles from "./home.module.scss";
 import Head from "next/head";
 
 // const { data, error } = await supabase.auth.signInWithOtp({
