@@ -1,4 +1,5 @@
 import { supabase } from "./../lib/supabaseClient";
+import Header from '../components/layout/Header'
 
 interface Country {
   id: string;
@@ -11,11 +12,14 @@ interface ExamplePage {
 
 function Page({ countries }: ExamplePage) {
   return (
+    <>
+    <Header/>
     <ul>
       {countries.map((country) => (
         <li key={country.id}>{country.name}</li>
       ))}
     </ul>
+    </>
   );
 }
 

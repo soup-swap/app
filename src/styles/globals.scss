@@ -1,0 +1,23 @@
+
+@import "./variables.scss";
+
+body {
+  margin: 0;
+  background-color: $offwhite;
+  color: $brown;
+  font-family: "Nunito", sans-serif;
+  h1: {
+    font-family: "Itim", serif;
+  }
+}
+header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  background-color: $curry;
+  padding: 20px;
+  .soup-logo {
+    width: 100px;
+    height: auto;
+  }
+}
