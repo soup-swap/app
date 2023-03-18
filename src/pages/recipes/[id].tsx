@@ -1,3 +1,4 @@
+import { supabase } from "@/lib/supabaseClient";
 import { Ingredient, Recipe } from "@/lib/types";
 import { FC } from "react";
 
@@ -5,27 +6,16 @@ interface RecipeDetailsPageProps {
   recipe: Recipe;
 }
 
-export const getServerSideProps = () => {
+export const getServerSideProps = async ({ params }) => {
+  const result = await supabase
+    .from("recipes")
+    .select()
+    .eq("recipe_id", params.id)
+    .single();
+
   return {
     props: {
-      recipe: {
-        id: 2,
-        name: "Clamato Chowder",
-        ingredients: [
-          {
-            name: "Tomato Juice",
-            quantity: 2,
-            unit: "Cups",
-          },
-          {
-            name: "Fresh Clams",
-            quantity: 1,
-            unit: "Bucket",
-          },
-        ],
-        instructions:
-          "Mix tomato juice and clams in a blender. Pour over ice. Garnish with a habanero-stuffed olive, skewered by a tiny plastic sword.",
-      },
+      recipe: result.data,
     },
   };
 };
@@ -49,7 +39,7 @@ const IngredientsList: FC<IngredientsListProps> = ({ ingredients }) => {
 const RecipeDetailsPage: FC<RecipeDetailsPageProps> = ({ recipe }) => {
   return (
     <div>
-      <h1>{recipe.name}</h1>
+      <h1>{recipe.recipe_name}</h1>
       <h2>Ingredients</h2>
       <IngredientsList ingredients={recipe.ingredients} />
       <h2>Instructions</h2>
