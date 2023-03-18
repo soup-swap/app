@@ -1,0 +1,11 @@
+@import "./variables.scss";
+
+.homepageContainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+    min-height: 75vh;
+    background-color: $offwhite;
+}
