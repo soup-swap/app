@@ -14,13 +14,12 @@ interface ExamplePage {
 function Page({ countries }: ExamplePage) {
   return (
     <>
-    <Header/>
-    <ul>
-      {countries.map((country) => (
-        <li key={country.id}>{country.name}</li>
-      ))}
-    </ul>
-    <Footer/>
+      <Header />
+      <h1>Soup Swap</h1>
+      <p>
+        Sign up to drop drop the swap swap!
+      </p>
+      <Footer />
     </>
   );
 }
