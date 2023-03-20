@@ -6,19 +6,12 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    min-height: 75vh;
+    min-height: 50vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background-color: $offwhite;
     form {
         width: 600px;
-    }
-    input,
-    textarea {
-        padding: 10px;
-        margin-left: 10px;
-        margin-right: 5px;
-        background-color: $lighteroffwhite;
-        border: 1px solid $curry;
-        margin-bottom: 20px;
     }
     label {
         margin-right: 10px;

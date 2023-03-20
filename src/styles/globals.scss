@@ -27,3 +27,13 @@ button {
     background-color: $pink;
   }
 }
+
+input,
+textarea {
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
+  background-color: $lighteroffwhite;
+  border: 1px solid $curry;
+  margin-bottom: 20px;
+}

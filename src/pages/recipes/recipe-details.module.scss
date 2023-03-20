@@ -1,10 +1,10 @@
-@import "./variables.scss";
+@import "../../styles/variables.scss";
 
-.homepageContainer {
+.recipeDetails {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     margin: 0 auto;
     min-height: 50vh;
     padding-top: 20px;

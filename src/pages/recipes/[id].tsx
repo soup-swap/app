@@ -1,5 +1,6 @@
 import { Ingredient, Recipe } from "@/lib/types";
 import { FC } from "react";
+import styles from './recipe-details.module.scss'
 
 interface RecipeDetailsPageProps {
   recipe: Recipe;
@@ -48,13 +49,13 @@ const IngredientsList: FC<IngredientsListProps> = ({ ingredients }) => {
 
 const RecipeDetailsPage: FC<RecipeDetailsPageProps> = ({ recipe }) => {
   return (
-    <div>
+    <main className={styles.recipeDetails}>
       <h1>{recipe.name}</h1>
       <h2>Ingredients</h2>
       <IngredientsList ingredients={recipe.ingredients} />
       <h2>Instructions</h2>
       <p>{recipe.instructions}</p>
-    </div>
+    </main>
   );
 };
 
