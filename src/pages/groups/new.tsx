@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import { supabase } from "../../lib/supabaseClient";
 
 interface GroupFormData {
   name: string;
@@ -7,8 +8,15 @@ interface GroupFormData {
 
 export default function CreateGroupPage() {
   const { register, handleSubmit } = useForm<GroupFormData>();
-  const onSubmit = (values: GroupFormData) => {
-    console.log("group values", values);
+  const onSubmit = async (values: GroupFormData) => {
+    const result = await supabase.from("groups").insert({
+      group_name: values.name,
+      group_description: values.description
+    });
+
+    console.log("result");
+    //console.log("group name", values.name);
+
   };
 
   return (
