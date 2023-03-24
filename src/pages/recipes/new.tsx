@@ -1,8 +1,8 @@
 import { Ingredient, UNIT_TEASPOON } from "@/lib/types";
 import { useForm, useFieldArray } from "react-hook-form";
-import Image from 'next/image'
-import XIcon from "../../assets/x-icon.png"
-import styles from "./newrecipe.module.scss"
+import Image from "next/image";
+import XIcon from "../../assets/x-icon.png";
+import styles from "./newrecipe.module.scss";
 
 interface RecipeFormData {
   recipeName: string;
@@ -15,7 +15,7 @@ export default function CreateRecipePage() {
     handleSubmit,
     control,
     register,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<RecipeFormData>();
 
   const {
@@ -69,18 +69,20 @@ export default function CreateRecipePage() {
                       {...register(`ingredients.${index}.name`)}
                     />
                   </div>
-                  <button className={styles.removeIngredient} onClick={() => removeIngredient(index)}>
-                    <Image
-                      src={XIcon}
-                      alt="Remove"
-                      className={styles.xIcon}
-                    />
+                  <button
+                    className={styles.removeIngredient}
+                    onClick={() => removeIngredient(index)}
+                  >
+                    <Image src={XIcon} alt="Remove" className={styles.xIcon} />
                   </button>
                 </li>
               ))}
             </ul>
           </div>
-          <button className={styles.addIngredient} onClick={handleAddNewIngredient}>
+          <button
+            className={styles.addIngredient}
+            onClick={handleAddNewIngredient}
+          >
             + add ingredient
           </button>
         </div>
@@ -92,7 +94,9 @@ export default function CreateRecipePage() {
             })}
           />
         </div>
-        <button type="submit">Save</button>
+        <button type="submit" disabled={!isValid}>
+          Save
+        </button>
       </form>
     </main>
   );
