@@ -29,7 +29,7 @@ export const RecipesList: FC<{ recipes: Recipe[] }> = ({ recipes }) => {
   return (
     <ul>
       {recipes.map((recipe) => (
-        <Link key={recipe.recipe_id} href={`recipes/${recipe.recipe_id}`}>
+        <Link key={recipe.recipe_id} href={`/recipes/${recipe.recipe_id}`}>
           <li>{recipe.recipe_name}</li>
         </Link>
       ))}
